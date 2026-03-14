@@ -1,0 +1,39 @@
+body{
+    font-family: Arial;
+    text-align:center;
+    margin-top:80px;
+    background:#1e1e1e;
+    color:white;
+}
+
+.box{
+    background:#2c2c2c;
+    padding:40px;
+    width:420px;
+    margin:auto;
+    border-radius:12px;
+}
+
+.drop-zone{
+    border:2px dashed #555;
+    border-radius:10px;
+    padding:40px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.drop-zone.dragover{
+    border-color:#aaa;
+    background:#3a3a3a;
+}
+
+button{
+    padding:10px 20px;
+    margin-top:20px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+input{
+    display:none;
+}
