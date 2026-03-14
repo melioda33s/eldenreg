@@ -4,7 +4,6 @@ const runBtn = document.getElementById("runBtn");
 
 let uploadedFile = null;
 
-
 dropZone.onclick = () => fileInput.click();
 
 fileInput.onchange = (event) => {
@@ -13,7 +12,6 @@ fileInput.onchange = (event) => {
 
     dropZone.textContent = uploadedFile.name;
 };
-
 
 dropZone.ondragover = (event) => {
 
@@ -45,10 +43,8 @@ runBtn.onclick = async () => {
     }
 
     const filename = uploadedFile.name;
-
     const uploadedBuffer = await uploadedFile.arrayBuffer();
     const uploadedBytes = new Uint8Array(uploadedBuffer);
-
     const ps4_reg_start = 0x1960070;
     const pc_reg_start = 0x19603C0;
 
