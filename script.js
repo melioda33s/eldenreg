@@ -53,31 +53,35 @@ runBtn.onclick = async () => {
 
     if(filename === "memory.dat"){
 
-        const response = await fetch("ER0000.sl2");
-        const pcBuffer = await response.arrayBuffer();
-        const pcBytes = new Uint8Array(pcBuffer);
+    const response = await fetch("ER0000.sl2");
+    const pcBuffer = await response.arrayBuffer();
+    const pcBytes = new Uint8Array(pcBuffer);
 
-        const pc_reg = pcBytes.slice(pc_reg_start);
+    const pc_reg = pcBytes.slice(pc_reg_start);
 
-        merged = new Uint8Array(ps4_reg_start + pc_reg.length);
+    merged = new Uint8Array(ps4_reg_start + pc_reg.length);
 
-        merged.set(uploadedBytes.slice(0, ps4_reg_start),0);
-        merged.set(pc_reg, ps4_reg_start);
+    merged.set(uploadedBytes.slice(0, ps4_reg_start),0);
+    merged.set(pc_reg, ps4_reg_start);
 
-        output_name = "memory.dat";
-    }
+    output_name = "memory.dat";
+}
 
     else if(filename === "ER0000.sl2"){
 
-        const pc_reg = uploadedBytes.slice(pc_reg_start);
+    const response = await fetch("ER0000.sl2");
+    const pcBuffer = await response.arrayBuffer();
+    const pcBytes = new Uint8Array(pcBuffer);
 
-        merged = new Uint8Array(pc_reg_start + pc_reg.length);
+    const pc_reg = pcBytes.slice(pc_reg_start);
 
-        merged.set(uploadedBytes.slice(0, pc_reg_start),0);
-        merged.set(pc_reg, pc_reg_start);
+    merged = new Uint8Array(pc_reg_start + pc_reg.length);
 
-        output_name = "ER0000.sl2";
-    }
+    merged.set(uploadedBytes.slice(0, pc_reg_start),0);
+    merged.set(pc_reg, pc_reg_start);
+
+    output_name = "ER0000.sl2";
+}
 
     else{
         alert("Error: Upload memory.dat or ER0000.sl2");
