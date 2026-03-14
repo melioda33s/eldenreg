@@ -1,4 +1,3 @@
-
 const dropZone = document.getElementById("dropZone");
 const fileInput = document.getElementById("fileInput");
 const runBtn = document.getElementById("runBtn");
