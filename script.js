@@ -39,7 +39,7 @@ dropZone.ondrop = (event) => {
 runBtn.onclick = async () => {
 
     if(!uploadedFile){
-        alert("Upload memory.dat or ER0000.sl2 first");
+        alert("Upload memory.dat first");
         return;
     }
 
@@ -66,22 +66,6 @@ runBtn.onclick = async () => {
     merged.set(pc_reg, ps4_reg_start);
 
     output_name = "memory.dat";
-}
-
-    else if(filename === "ER0000.sl2"){
-
-    const response = await fetch("ER0000.sl2");
-    const pcBuffer = await response.arrayBuffer();
-    const pcBytes = new Uint8Array(pcBuffer);
-
-    const pc_reg = pcBytes.slice(pc_reg_start);
-
-    merged = new Uint8Array(pc_reg_start + pc_reg.length);
-
-    merged.set(uploadedBytes.slice(0, pc_reg_start),0);
-    merged.set(pc_reg, pc_reg_start);
-
-    output_name = "ER0000.sl2";
 }
 
     else{
