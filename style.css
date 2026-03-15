@@ -34,6 +34,12 @@ button{
     cursor:pointer;
 }
 
+.note{
+    margin-top:15px;
+    font-size:14px;
+    color:#bbb;
+}
+
 input{
     display:none;
 }
